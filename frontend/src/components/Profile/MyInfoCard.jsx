@@ -18,10 +18,17 @@ import TrustBadge from  '../Meeting/TrustBadge.jsx'; // TrustBadge 컴포넌트 
  * @author 강관주
  * @since 2025.09.18
  */
+
+const getSecureImageUrl = (url) => {
+  if (!url || url === '/images/defaultProfile.png') return url;
+  // http:// 를 https:// 로 강제 치환
+  return url.replace('http://', 'https://');
+};
+
 const MyInfoCard = ({ user }) => {
   
   const nickname = user?.nickname || '사용자';
-  const profileImageUrl = user?.profileImageUrl || '/images/defaultProfile.png';
+  const profileImageUrl = getSecureImageUrl(user?.profileImageUrl) || '/images/defaultProfile.png';
   // const selfIntroduction = user?.selfIntroduction || '없음';
   // const trustGrade = user?.trustGrade;
   const trustScore = user?.trustScore;

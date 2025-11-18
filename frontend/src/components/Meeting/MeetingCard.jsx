@@ -50,8 +50,9 @@ const MeetingCard = ({ meeting }) => {
         if (!thumbnailUrl) {
             return placeholder;
         }
-        if (thumbnailUrl.startsWith('http')) {
-            return thumbnailUrl;
+        if (thumbnailUrl.startsWith('http://')) {
+            // http를 https로 강제 변경하여 Mixed Content 방지
+            return thumbnailUrl.replace('http://', 'https://');
         }
         const backendUrl = import.meta.env.VITE_API_URL.replace('/api', '');
         return `${backendUrl}${thumbnailUrl}`;
