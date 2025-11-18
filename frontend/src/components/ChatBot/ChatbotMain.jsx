@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { sendMessageToChatbot, getChatbotHistory, isUserAuthenticated } from '../../services/chatbotApi.js';
-import styles from './ChatbotStyles.module.scss';
+import styles from './Chatbot.module.scss';
 import { FaRobot } from "react-icons/fa6";
 import { BsSendPlus } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
