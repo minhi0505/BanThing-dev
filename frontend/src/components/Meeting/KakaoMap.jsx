@@ -21,7 +21,7 @@ const KakaoMap = ({ onMarkerClick, meetings, selectedMartName, onClearSelectedMa
     const isMapInitialized = useRef(false);
 
     useEffect(() => {
-        if (isMapInitialized.current || !meetings || meetings.length === 0) return;
+        if (isMapInitialized.current || !meetings) return;
 
         const initializeMap = async () => {
             const meetingsData = meetings;
