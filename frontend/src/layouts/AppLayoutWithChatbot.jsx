@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import AppLayout from './AppLayout.jsx';
-import Chatbot from '../components/Chatbot/Chatbot';
+import ChatbotMain from '../components/ChatBot/ChatbotMain.jsx';
 import '../App.scss'; // 공통 스타일 있으면 여기서 import
 
 export default function AppLayoutWithChatbot() {
@@ -30,7 +30,7 @@ export default function AppLayoutWithChatbot() {
                         overflow: 'hidden',
                     }}
                 >
-                    <Chatbot />
+                    <ChatbotMain  />
                 </div>
             )}
         </>

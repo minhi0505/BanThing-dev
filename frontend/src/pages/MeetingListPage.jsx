@@ -3,7 +3,7 @@ import KakaoMap from "../components/Meeting/KakaoMap.jsx";
 import MeetingList from "../components/Meeting/MeetingList.jsx";
 import { searchMeetings } from '../services/meetingApi.js';
 import styles from './MeetingListPage.module.scss';
-import Chatbot from '../components/Chatbot/Chatbot.jsx';
+import ChatbotMain from '../components/ChatBot/ChatbotMain.jsx';
 import { FaSearch, FaPlus } from 'react-icons/fa';
 import Pagination from '../components/Meeting/Pagination.jsx';
 import { Link } from 'react-router-dom';
@@ -151,7 +151,7 @@ const MeetingListPage = () => {
                     paginate={paginate}
                 />
             )}
-            <Chatbot />
+            <ChatbotMain  />
         </div>
     );
 };

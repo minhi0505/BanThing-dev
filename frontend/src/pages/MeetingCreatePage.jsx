@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getAllMarts } from '../services/martApi';
+import { getAllMarts } from '../services/MartApi';
 import { createMeeting } from '../services/createMeetingApi';
 import styles from './MeetingCreatePage.module.scss';
 import { IoIosWarning } from "react-icons/io";

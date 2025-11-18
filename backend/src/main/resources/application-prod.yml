@@ -1,0 +1,79 @@
+server:
+  port: ${SERVER_PORT:9000}
+  address: 0.0.0.0
+
+spring:
+  datasource:
+    url: ${DATABASE_URL}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+      connection-timeout: 30000
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: false
+        show_sql: false
+    database: postgresql
+
+  sql:
+    init:
+      mode: never
+
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            client-id: ${KAKAO_CLIENT_ID}
+            client-secret: ${KAKAO_CLIENT_SECRET}
+            client-authentication-method: client_secret_post
+            authorization-grant-type: authorization_code
+            scope: [ profile_nickname, profile_image ]
+            redirect-uri: 'https://api.banthing.shop/login/oauth2/code/kakao'
+        provider:
+          kakao:
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            user-name-attribute: id
+
+logging:
+  level:
+    root: info
+    com.nathing.banthing: info
+    org.hibernate.SQL: warn
+
+jwt:
+  secret: ${JWT_SECRET}
+  access-expiration: ${JWT_ACCESS_TOKEN_EXPIRATION:900000}
+  refresh-expiration: ${JWT_REFRESH_TOKEN_EXPIRATION:604800000}
+
+cookie:
+  domain: .banthing.shop
+  path: /
+  secure: true
+  http-only: true
+  same-site: Lax
+  access-token-name: ACCESS_TOKEN
+  refresh-token-name: REFRESH_TOKEN
+  access-max-age: ${COOKIE_ACCESS_TOKEN_MAX_AGE:900}
+  refresh-max-age: ${COOKIE_REFRESH_TOKEN_MAX_AGE:604800}
+
+app:
+  oauth2-success-redirect-url: https://banthing.shop/popup-close
+  oauth2-failure-redirect-url: https://banthing.shop/popup-close?from=oauth2
+
+google:
+  ai:
+    api-key: ${GOOGLE_AI_API_KEY}
+    model: ${GOOGLE_AI_MODEL:gemini-1.5-flash}
+    temperature: ${GOOGLE_AI_TEMPERATURE:0.7}
+    max-tokens: ${GOOGLE_AI_MAX_TOKENS:1000}
+
+file:
+  upload-dir: ${FILE_UPLOAD_PATH:/tmp/uploads}

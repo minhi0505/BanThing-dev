@@ -15,7 +15,7 @@ import {
     // deleteComments
 } from '../services/meetingDetailApi';
 import {FaMapMarkerAlt, FaCalendarAlt, FaUsers, FaClock, FaEdit, FaTrash} from 'react-icons/fa';
-import Chatbot from '../components/Chatbot/Chatbot';
+import ChatbotMain from '../components/ChatBot/ChatbotMain.jsx';
 import styles from './MeetingDetailPage.module.scss';
 import {AuthService} from "../services/authService.js";
 import CommentModal from "../components/Comment/CommentModal.jsx";
@@ -462,7 +462,7 @@ const MeetingDetailPage = () => {
                         목록으로 돌아가기
                     </button>
                 </div>
-                <Chatbot/>
+                <ChatbotMain/>
             </div>
         );
     }
@@ -784,7 +784,7 @@ const MeetingDetailPage = () => {
                 </div>
             </div>
 
-            <Chatbot/>
+            <ChatbotMain/>
             {isModalOpen && (
                 <CommentModal
                     isOpen={isModalOpen}
