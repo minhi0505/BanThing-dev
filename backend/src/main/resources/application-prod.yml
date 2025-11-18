@@ -34,7 +34,7 @@ spring:
             client-authentication-method: client_secret_post
             authorization-grant-type: authorization_code
             scope: [ profile_nickname, profile_image ]
-            redirect-uri: 'https://api.banthing.shop/login/oauth2/code/kakao'
+            redirect-uri: 'https://server.banthing.shop/login/oauth2/code/kakao'
         provider:
           kakao:
             authorization-uri: https://kauth.kakao.com/oauth/authorize

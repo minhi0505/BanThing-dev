@@ -181,7 +181,8 @@ const ChatbotMain = () => {
     // 회원가입 버튼 클릭 핸들러
     const handleSignupClick = useCallback(() => {
         // VITE_API_URL 환경 변수를 사용하도록 수정
-        const KAKAO_AUTH_URL = `${import.meta.env.VITE_API_URL}/oauth2/authorization/kakao`;
+        const BASE_URL = import.meta.env.VITE_API_URL.replace('/api', '');
+        const KAKAO_AUTH_URL = `${BASE_URL}/oauth2/authorization/kakao`;
         window.location.href = KAKAO_AUTH_URL;
     }, []);
 
