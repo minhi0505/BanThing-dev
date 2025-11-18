@@ -82,9 +82,14 @@ const MeetingDetailPage = () => {
             if (result.success) {
                 setComments(result.data.reverse());
             } else {
-                setError(result.message || '댓글 정보를 불러올 수 없습니다.')
+                // 수정됨: 댓글 로드 실패 시 전체 페이지 에러로 전환하지 않음
+                // setError(result.message || '댓글 정보를 불러올 수 없습니다.')
+
+                // 대신 콘솔에 경고만 남기고 넘어갑니다.
+                console.warn('댓글을 불러오지 못했습니다 (무시함):', result.message);
             }
         } catch (error) {
+            // 네트워크 오류 등이 발생해도 페이지는 계속 보여줍니다.
             console.error('댓글을 불러오는 데 실패했습니다.', error);
         }
     };
